@@ -1,6 +1,9 @@
-window.GoyakaPlayer = {}
+window.GoyakaPlayer = GoyakaPlayer = {}
+window.GoyakaPlayer.currentPlayId = 0;
 window.GoyakaPlayer.songs = []
-fetch_feeds =->
+GoyakaPlayer.STOPPED = 0
+
+window.GoyakaPlayer.fetch_feeds =->
     feeds = jQuery('.fbGroupsStream li.uiUnifiedStory')
     for feed in feeds
         link = jQuery(feed).find('.uiAttachmentTitle a')
