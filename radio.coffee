@@ -33,6 +33,11 @@ window.GoyakaPlayer.add_player_listeners =->
     else
         window.setTimeout(window.GoyakaPlayer.add_player_listeners, 10000)
 
+pollPlayerState =->
+    player = document.getElementById('goyakaplayer')
+    player_state = player.getPlayerState()
+    if player_state == GoyakaPlayer.STOPPED
+        playNext()
     
 add_player_box =->
     player_wrap = jQuery('<div style="padding:3px; border:1px solid #000; border-radius:4px;position:absolute;top:100px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
