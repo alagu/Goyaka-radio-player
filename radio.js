@@ -3,11 +3,23 @@
   var fetch_feeds;
 
   fetch_feeds = function() {
-    debugger;    return jQuery('.fbGroupsStream li');
+    var feed, feeds, link, song, _i, _len, _results;
+    feeds = jQuery('.fbGroupsStream li.uiUnifiedStory');
+    _results = [];
+    for (_i = 0, _len = feeds.length; _i < _len; _i++) {
+      feed = feeds[_i];
+      link = jQuery(feed).find('.uiAttachmentTitle a');
+      if (link.length > 0) {
+        song = $(link[0]);
+        _results.push(console.log(song.html() + ' ' + song.attr('href')));
+      } else {
+        _results.push(void 0);
+      }
+    }
+    return _results;
   };
 
   $(document).ready(function() {
-    console.log('hi');
     return fetch_feeds();
   });
 

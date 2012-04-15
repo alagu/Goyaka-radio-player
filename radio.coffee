@@ -1,6 +1,11 @@
 fetch_feeds =->
-    debugger
-    jQuery('.fbGroupsStream li')
+    feeds = jQuery('.fbGroupsStream li.uiUnifiedStory')
+    
+    for feed in feeds
+        link = jQuery(feed).find('.uiAttachmentTitle a')
+        if link.length > 0
+            song = $(link[0])
+            console.log(song.html() + ' ' + song.attr('href')) 
+    
 $(document).ready ->
-    console.log 'hi'
     fetch_feeds()
