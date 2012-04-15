@@ -5,8 +5,17 @@ fetch_feeds =->
     for feed in feeds
         link = jQuery(feed).find('.uiAttachmentTitle a')
         if link.length > 0
+            actor_image = jQuery(feed).find('.actorPhoto img').attr('src')
+            actor_name  = jQuery(feed).find('.actorName a').html()
+            message     = jQuery(feed).find('.messageBody').html()
             song = $(link[0])
-            song_item = {'song': song.html(), 'url':song.attr('href')}
+            song_item = 
+                actor_image: actor_image
+                actor_name: actor_name
+                message: message
+                song: song.find('span').html()
+                url: song.attr('href')
+                
             window.GoyakaPlayer.songs.push(song_item)
     
 
