@@ -45,8 +45,8 @@ pollPlayerState =->
     if player_state == GoyakaPlayer.STOPPED
         playNext()
     
-add_player_box =->
-    player_wrap = jQuery('<div style="padding:3px; border:1px solid #000; border-radius:4px;position:absolute;top:100px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
+window.GoyakaPlayer.add_player_box =->
+    player_wrap = jQuery('<div style="padding:3px; border:1px solid #000; border-radius:4px;position:fixed;bottom:-7px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
     jQuery('body').append(player_wrap)
     
     params = { allowScriptAccess: "always" };
