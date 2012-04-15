@@ -1,0 +1,19 @@
+{
+  "name": "Goyaka Radios",
+  "version": "0.1",
+  "description": "Goyaka Radios",
+  "permissions": [
+    "https://www.facebook.com/",
+    "http://www.facebook.com/",
+    "notifications"
+  ],
+   "icons": {
+     "48": "icon.png"
+   },
+   "content_scripts": [
+   {
+     "matches": ["https://www.facebook.com/groups/goyakaradios/*"],
+     "js" : ["jquery.js","radio.js"]
+   }
+  ]
+}
