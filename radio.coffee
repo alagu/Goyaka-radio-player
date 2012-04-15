@@ -11,8 +11,9 @@ fetch_feeds =->
     console.log(feeds.length)
 
 add_player_box =->
-    player_wrap = $('<div style="width:100px;height:200px;position:absolute;top:0;left:50%;background-color:#ff0;">Hello!</div>')    
-    $('body').append(player_wrap)
+    player_wrap = jQuery('<div style="width:100px;height:200px;position:absolute;top:0;left:50%;background-color:#ff0;">Hello!</div>')    
+    jQuery('body').append(player_wrap)
     
-$(document).ready ->
+jQuery(document).ready ->
     fetch_feeds()
+    add_player_box()

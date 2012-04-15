@@ -20,12 +20,13 @@
 
   add_player_box = function() {
     var player_wrap;
-    player_wrap = $('<div style="width:100px;height:200px;position:absolute;top:0;left:50%;background-color:#ff0;">Hello!</div>');
-    return $('body').append(player_wrap);
+    player_wrap = jQuery('<div style="width:100px;height:200px;position:absolute;top:0;left:50%;background-color:#ff0;">Hello!</div>');
+    return jQuery('body').append(player_wrap);
   };
 
-  $(document).ready(function() {
-    return fetch_feeds();
+  jQuery(document).ready(function() {
+    fetch_feeds();
+    return add_player_box();
   });
 
 }).call(this);
