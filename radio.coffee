@@ -33,6 +33,12 @@ window.GoyakaPlayer.add_player_listeners =->
     else
         window.setTimeout(window.GoyakaPlayer.add_player_listeners, 10000)
 
+playNext =->
+    console.log('Playing next song')
+    window.GoyakaPlayer.currentPlayId = window.GoyakaPlayer.currentPlayId + 1
+    playSong(window.GoyakaPlayer.currentPlayId)
+
+    
 pollPlayerState =->
     player = document.getElementById('goyakaplayer')
     player_state = player.getPlayerState()
