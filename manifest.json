@@ -10,10 +10,11 @@
    "icons": {
      "48": "icon.png"
    },
+   "background_page" : "background.html",
    "content_scripts": [
    {
      "matches": ["https://www.facebook.com/groups/goyakaradios/*"],
-     "js" : ["jquery.js","swfobject.js", "radio.js"]
+     "js" : ["jquery.js","swfobject.js", "radio.js", "radio_init.js"]
    }
   ]
 }
