@@ -26,6 +26,13 @@ get_youtube_id = (url)->
         return matches[1]
     else
         return false
+        
+window.GoyakaPlayer.add_player_listeners =->
+    if is_player_loaded()
+        window.setInterval(pollPlayerState, 5000)
+    else
+        window.setTimeout(window.GoyakaPlayer.add_player_listeners, 10000)
+
     
 add_player_box =->
     player_wrap = jQuery('<div style="padding:3px; border:1px solid #000; border-radius:4px;position:absolute;top:100px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
