@@ -58,21 +58,34 @@ window.GoyakaPlayer.add_player_box =->
     
     swfobject.embedSWF("https://www.youtube.com/v/" + first_youtube_id + "?enablejsapi=1&playerapiid=ytplayer&version=3",
                        "goyakatube", "250", "180", "8", null, null, params, atts);
+                       
+    window.GoyakaPlayer.add_player_listeners()
     
 
-queue_songs =->
+is_player_loaded =->
+    if document.getElementById('goyakaplayer')
+        true
+    else
+        false
+    
+notifySong = (id)->
+    song = window.GoyakaPlayer.songs[id]
+    text = song['actor_name'] + ' ' + song['message']
+    chrome.extension.sendRequest
+        action: 'notification',
+        image: song['actor_image'],
+        title: song['actor_name'], 
+        message: song['message']
+    
+playSong =(id)->
     player = document.getElementById('goyakaplayer')
-    songs_list = window.GoyakaPlayer.songs.slice(1,window.GoyakaPlayer.songs.length)
-    for song in songs_list
-        console.log('Queueing ' + song['song'])
-        player.cueVideoByUrl(song['url'])
-
-play =->
-    player = document.getElementById('goyakaplayer')
+    youtube_id = get_youtube_id(window.GoyakaPlayer.songs[id]['url'])
+    player.cueVideoById(youtube_id)
     player.playVideo()
+    notifySong(id)
     
-jQuery(document).ready ->
-    fetch_feeds()
-    add_player_box()
-    queue_songs()
-    play()
+window.GoyakaPlayer.play =->
+    if is_player_loaded()
+        playSong(0)
+    else
+        window.setTimeout(window.GoyakaPlayer.play, 5000)
