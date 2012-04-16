@@ -49,7 +49,7 @@ pollPlayerState =->
         playNext()
     
 window.GoyakaPlayer.add_player_box =->
-    player_wrap = jQuery('<div style="padding:3px; border:1px solid #000; border-radius:4px;position:fixed;bottom:-7px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
+    player_wrap = jQuery('<div style="padding:2px; border:1px solid #333; border-radius:3px;position:fixed;bottom:-7px;left:20%;background-color:#fff;zoom:2;z-index:99999999;"><div id="goyakatube"></div></div>')    
     jQuery('body').append(player_wrap)
     
     params = { allowScriptAccess: "always" };
@@ -57,7 +57,7 @@ window.GoyakaPlayer.add_player_box =->
     first_youtube_id = get_youtube_id(window.GoyakaPlayer.songs[0]['url'])
     
     swfobject.embedSWF("https://www.youtube.com/v/" + first_youtube_id + "?enablejsapi=1&playerapiid=ytplayer&version=3",
-                       "goyakatube", "250", "180", "8", null, null, params, atts);
+                       "goyakatube", "150", "80", "8", null, null, params, atts);
                        
     window.GoyakaPlayer.add_player_listeners()
     
