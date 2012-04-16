@@ -9,8 +9,9 @@
   });
 
   notification = function(image, title, message) {
-    notification = window.webkitNotifications.createNotification(image, title, message);
-    return notification.show();
+    var showpopup;
+    showpopup = window.webkitNotifications.createNotification(image, title, message);
+    return showpopup.show();
   };
 
 }).call(this);
